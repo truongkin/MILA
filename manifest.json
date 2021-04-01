@@ -1,0 +1,38 @@
+{
+   "background": {
+      "scripts": ["backgroundSendToServer.js"],
+      "persistent": true
+  },
+   "browser_action": {
+      "default_icon": "image/icon_128.png",
+      "default_popup": "popup.html",
+      "default_title": "Mila - Minh Hoang Assistant"
+   },
+   "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+   "description": "Trợ lý ngôn ngữ Mila - Minh Hoang Language Assistant",
+   "icons": {
+      "128": "image/icon_128.png",
+      "16": "image/icon.png",
+      "48": "image/icon_48.png"
+   },
+
+   "content_scripts": [
+      {
+        "matches": ["https://pages.fm/*"],
+        "js": ["js/jquery.js","content_script.js"]
+      }
+   ],
+   "manifest_version": 2,
+   "name": "Mila - Minh Hoang Assistant",
+   // "permissions": [ "notifications" ,"activeTab", "debugger", "cookies", "tabs", "storage", "unlimitedStorage", "<all_urls>", "webRequest", "https://*/", "webRequestBlocking", "webNavigation", "identity", "gcm"],
+   "permissions": [
+      "http://*/*",
+      "https://*/*",
+      "tabs",
+      "storage",
+      "webRequest",
+      "webRequestBlocking",
+      "cookies"
+   ],
+   "version": "1.0"
+}
